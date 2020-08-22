@@ -1,0 +1,12 @@
+Debian 9 Image 2019-04-10, kernel version 4.14.108-ti-r124.
+In order to enable PRU, uncomment the line from uEnv.txt.
+uboot_overlay_pru=/lib/firmware/AM335X-PRU-UIO-00A0.dtbo
+
+Reboot and run the "lsmod | grep uio". The output should be:
+"uio_pruss              16384  0
+uio_pdrv_genirq        16384  0
+uio                    20480  2 uio_pruss,uio_pdrv_genirq"
+
+Configure pins.
+config-pin p8.11 pruout
+config-pin p8.12 pruout 
